@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f0f0f0;
+        }
+
+        header {
+            background: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+      .active-link{
+        color: rgb(38, 5, 158);
+        float:right;
+      }
+      nav a:hover {
+            color: #c42f15;
+      }
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        #home {
+            background: #af2385;
+        }
+
+        #about {
+            background: #531212;
+        }
+
+        #contact {
+            background: #3f5094;
+        }
+
+        button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+         .progress-bar {
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 12px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+          .skill-items {
+            margin-bottom: 20px;
+        }
+
+        #topBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+    <a href="#home" class="active-link">Home</a>
+    <a href="#about"  class="active-link">About</a>
+    <a href="#service"  class="active-link">service</a>
+    <a href="#skill"  class="active-link">skill</a>
+    <a href="#contact" class="active-link">Contact</a>
+    </nav>
+</header>
+
+<section id="home">
+    <h1>Hello, I am </h1>
+    <h2>KALKIDAN TEKA</h2>
+    <p>I am a grade 11 student learning web design.</p>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <img src="kal.jpg">
+    <p>I to go to church ,helping others & singing.</p>
+
+    <button onclick="showMore()">Read More</button>
+    <p id="more" style="display:none;">I am good at being silent .</p>
+</section>
+<section id="service">
+     <section id="service" class="service">
+        <h1> MY SERVICES</h1>
+         <div class="go">
+     <h3> going to church </h3>
+     <p>I alway go to church twice in a week. </p>
+     </div>
+      <div class="go">
+     <h3>heling others</h3>
+     <P>I also help olders.</P>
+      </div>
+    </section>
+    <section id="skill">
+        <h1>MY CREATIVE SKILLS</h1>
+        <div class="skill-bars">
+            <div class="skill-items">
+                <div class="skill-info">GOING TO CHURCH - 100%</div>
+                <div class="progress-bar"><div class="progress" data-width="100%"></div></div>
+            </div>
+            <div class="skill-items">
+                <div class="skill-info">HELPING OTHERS - 80%</div>
+                <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+            </div>
+        </div>
+        <button class="read-more-btn" id="readmorebtn" style="margin-top: 20px; padding: 10px;">READ MORE</button>
+        <p id="extraText" style="display:none; margin-top: 15px;"> I am also learning HTML, CSS, and JavaScript.</p>
+    </section>
+<section id="contact">
+    <h2>Contact</h2>
+    <form onsubmit="sendMsg(event)">
+        <input type="text" placeholder="Name"><br><br>
+        <input type="email" placeholder="Email"><br><br>
+        <textarea placeholder="Message"></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+     <div id="formFeedback"></div>
+            <div class="contact-info" style="margin-top: 30px;">
+                <p>📍 Addis Ababa, Ethiopia</p>
+                <p>📱0973800094</p>
+            </div>
+</section>
+<button id="topBtn" onclick="topPage()">Top</button>
+<footer>
+    <p>&copy; Kalkidan Teka copyright ,2026</p>
+</footer>
+<script>
+function showMore() {
+    var x = document.getElementById("more");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function sendMsg(e) {
+    e.preventDefault();
+    document.getElementById("msg").innerHTML = "Message sent!";
+}
+
+window.onscroll = function() {
+    var btn = document.getElementById("topBtn");
+    if (document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+}
+ document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('formFeedback');
+            feedback.innerHTML = "Thank you! Your message has been sent successfully.";
+            feedback.style.color = "lightgreen";
+            this.reset();
+        });
+
+function topPage() {
+    window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
